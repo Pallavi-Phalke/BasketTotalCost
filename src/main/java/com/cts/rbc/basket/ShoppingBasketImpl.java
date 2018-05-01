@@ -9,7 +9,12 @@ public class ShoppingBasketImpl implements ShoppingBasket{
 
 	private Map<String,Integer> basket=null;
 	private Double totalCost=0.0;
-	
+	/**
+	 * This method adds the fruit to the list of basket 
+	 * and forms the hashmap to store count of each fruit items in the list
+	 * If wrong item is added it will throw an exception 
+	 *  
+	 */
 	public void addItem(String item)
 	{
 		
@@ -39,11 +44,12 @@ public class ShoppingBasketImpl implements ShoppingBasket{
 			
 		}catch(Exception e){
 			e.printStackTrace();	
-		}
-		
-		
-		
+		}		
 	}
+	/**
+	 * Method calculateTotalCost calculates the total cost of fruit items purchased.
+	 * 
+	 * **/
 	public Double calculateTotalCost(){
 		if(basket!=null){
 			for(Map.Entry<String, Integer> item : basket.entrySet()){
@@ -53,6 +59,10 @@ public class ShoppingBasketImpl implements ShoppingBasket{
 		}
 		return totalCost;
 	}
+	/**
+	 * Method getAllItems() returns the hashmap containing list of all fruit items selected and repeated count for each fruit item mapped respectively
+	 * 
+	 * **/
 	public Map<String, Integer> getAllItems(){
 		Map<String, Integer> allItems = new HashMap<String, Integer>();
 		if(basket!=null)
